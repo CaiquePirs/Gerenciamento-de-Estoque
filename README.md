@@ -1,4 +1,4 @@
-**Sistema de Controle de Estoque de Produtos**
+##Sistema de Controle de Estoque de Produtos: 
 **Objetivo**
 Criar um sistema para gerenciar o estoque de produtos de uma loja, permitindo adicionar novos produtos, listar os produtos cadastrados e registrar vendas, atualizando automaticamente o estoque.
 
