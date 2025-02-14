@@ -6,14 +6,14 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in); // Scanner para ler dados do digitados pelo usuário
+        Scanner scanner = new Scanner(System.in); // Scanner para ler os dados digitados pelo usuário
         scanner.useLocale(Locale.forLanguageTag("pt-BR")); // Metodo Locale para usar padrão BR (Brasil)
-        Store store = new Store(); // Instanciando classe "store" para usá-la futuramente
+        Store store = new Store(); // Instanciando a classe "store" para usá-la futuramente
 
         // Inicio do sistema
         System.out.println("\t-------GERENCIAMENTO DE ESTOQUE--------");
 
-        // Variavel para armazenar opção de menu do usuário
+        // Variável para armazenar opção do menu escolhido pelo usuário
         int option;
 
         // Laço do while para mostrar menu para o usuário
@@ -26,7 +26,7 @@ public class Main {
             System.out.printf("Opção: ");
             option = scanner.nextInt(); // Lendo opção do usuário
 
-            // Switch case para exibir a opção do menu escolhida pelo usuário
+            // Switch case para exibir a opção do menu escolhido pelo usuário
             switch (option){
                 // Case 1 para cadastrar o produto no sistema
                 case 1:
@@ -47,10 +47,10 @@ public class Main {
                         System.out.printf("Informe o preço do produto: R$");
                         double price = scanner.nextDouble();
 
-                        // Chamando metodo construtor para criar o produto
+                        // Chamando método construtor para criar o produto
                         Product product = new Product(id, quantity, price, name);
 
-                        // Adicionando o produto cadastrado dentro do array list
+                        // Adicionando o produto cadastrado dentro do array list (Lista de produtos da loja)
                         store.products.add(product);
                         System.out.println("\t-----PRODUTO CADASTRADO------\n");
 
@@ -104,7 +104,7 @@ public class Main {
                         } else {
                             System.out.println("Lista de produtos:");
 
-                            // Laço for para exibir os produtos cadastrados de acordo com seu índice
+                            // Laço for para exibir os produtos cadastrados de acordo com o seu índice
                             for (int i = 0; i < store.products.size(); i++){
                                 System.out.println("Indice: " + i + " - " + store.products.get(i));
                             }
@@ -113,7 +113,7 @@ public class Main {
                             System.out.printf("\nInforme o indice do produto para registrar a venda: ");
                             int idProduct = scanner.nextInt();
 
-                            // Verificando se o índice digitado está na lista
+                            // Verificando se o índice digitado está na lista de produtos
                             if (idProduct >= 0 && idProduct < store.products.size()) {
                                 System.out.println(store.products.get(idProduct));
 
@@ -130,7 +130,7 @@ public class Main {
                                 // Caso a quantidade vendida seja maior que o estoque
                                 if(productQtd > store.products.get(idProduct).getQuantity()) {
                                     System.out.println("Estoque insuficiente para realizar a venda.\n");
-                                }
+                                } else {
 
                                 // Chamando metodo construtor para Registra a venda do produto
                                 Sale sale = new Sale(productId, store.products.get(idProduct), productQtd);
@@ -145,7 +145,7 @@ public class Main {
                                 // Exibindo informações da venda do produto
                                 sale.SellInfo();
 
-                               // Caso o usuário digite o índice de um produto que não exista
+                               // Caso o usuário digite um índice de um produto que não exista
                             } else {
                                 System.out.println("Índice inválido. Produto não encontrado.");
                             }
@@ -156,6 +156,7 @@ public class Main {
                         System.out.println("Erro ao registrar a venda do produto");
                         System.err.println("\t" + err.getMessage() + "\n");
                     }
+            }
                     break;
 
                 case 4:
@@ -167,8 +168,8 @@ public class Main {
                     break;
             }
 
+            // Fim do laço do while
         } while (option != 4);
-        System.out.println("\t-----Obrigado por utilizar nosso sistema!-----");
         scanner.close();
     }
 }
