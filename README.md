@@ -8,6 +8,7 @@ Criar um sistema para gerenciar o estoque de produtos de uma loja, permitindo ad
 - Registrar venda: O usuário pode escolher um produto e registrar uma venda, decrementando a quantidade de estoque do produto. O valor total da venda é calculado automaticamente com base no preço do produto e na quantidade vendida.
 
 **Estrutura das Classes**
+
 **Produto (Product)**
 Representa os produtos disponíveis na loja.
 
